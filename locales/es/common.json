@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "work": "Trabajo",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Creando Experiencias",
+    "titleHighlight": "Digitales",
+    "subtitle": "Ingeniero de software orientado a la precisión, con atención al detalle y ojo para la elegancia",
+    "description": "Me especializo en desarrollar aplicaciones web sofisticadas con atención meticulosa al rendimiento, accesibilidad y experiencia de usuario. Cada línea de código está elaborada con intención.",
+    "viewWork": "Ver Mi Trabajo",
+    "downloadResume": "Descargar CV"
+  },
+  "projects": {
+    "title": "Trabajo Seleccionado",
+    "subtitle": "Una selección de proyectos que demuestran desarrollo preciso y diseño cuidadoso",
+    "viewProject": "Ver Proyecto",
+    "liveDemo": "Demo en Vivo",
+    "source": "Código",
+    "viewAllProjects": "Ver Todos los Proyectos"
+  },
+  "skills": {
+    "title": "Experiencia",
+    "subtitle": "Habilidades integrales perfeccionadas a través de años de desarrollo preciso",
+    "foundations": "Fundamentos",
+    "advanced": "Avanzado",
+    "expert": "Experto",
+    "description": "Expandiendo continuamente mis herramientas con tecnologías emergentes y mejores prácticas. Cada proyecto presenta una oportunidad para refinar y mejorar estas capacidades.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas",
+      "design": "Diseño"
+    }
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "subtitle": "Creando Experiencias Digitales",
+    "description1": "Soy un ingeniero de software apasionado por crear aplicaciones elegantes y de alto rendimiento. Mi enfoque combina precisión técnica con diseño cuidadoso, resultando en experiencias digitales que se sienten tanto poderosas como intuitivas.",
+    "description2": "Con experiencia tanto en desarrollo frontend como backend, me especializo en soluciones full-stack escalables. Cada proyecto es una oportunidad para superar límites y entregar algo excepcional.",
+    "description3": "Cuando no estoy programando, me encontrarás explorando nuevas tecnologías, contribuyendo a proyectos de código abierto, o disfrutando de los detalles del equipo de audio y el diseño minimalista.",
+    "stats": {
+      "projectsCompleted": "Proyectos Completados",
+      "happyClients": "Clientes Satisfechos",
+      "yearsExperience": "Años de Experiencia",
+      "cupsOfCoffee": "Tazas de Café"
+    },
+    "philosophy": "Filosofía",
+    "philosophyText": "Creo en el poder del diseño cuidadoso y el código limpio. Cada interacción, cada animación y cada línea de código debe servir un propósito. Es esta atención al detalle lo que transforma el buen software en experiencias excepcionales."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Crafting Digital",
+    "titleHighlight": "Experiences",
+    "subtitle": "Precision-driven software engineering with an ear for detail and an eye for elegance",
+    "description": "I specialize in building sophisticated web applications with meticulous attention to performance, accessibility, and user experience. Every line of code is crafted with intention.",
+    "viewWork": "View My Work",
+    "downloadResume": "Download Resume"
+  },
+  "projects": {
+    "title": "Selected Work",
+    "subtitle": "A curated selection of projects that showcase precision engineering and thoughtful design",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "source": "Source",
+    "viewAllProjects": "View All Projects"
+  },
+  "skills": {
+    "title": "Expertise",
+    "subtitle": "A comprehensive skill set honed through years of precision engineering",
+    "foundations": "Foundations",
+    "advanced": "Advanced",
+    "expert": "Expert",
+    "description": "Continuously expanding my toolkit with emerging technologies and best practices. Each project presents an opportunity to refine and enhance these capabilities.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools",
+      "design": "Design"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Crafting Digital Experiences",
+    "description1": "I'm a software engineer with a passion for creating elegant, performant applications. My approach combines technical precision with thoughtful design, resulting in digital experiences that feel both powerful and intuitive.",
+    "description2": "With a background in both frontend and backend development, I specialize in full-stack solutions that scale. Every project is an opportunity to push boundaries and deliver something exceptional.",
+    "description3": "When I'm not coding, you'll find me exploring new technologies, contributing to open source projects, or enjoying the finer details of audio equipment and minimalist design.",
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "happyClients": "Happy Clients",
+      "yearsExperience": "Years Experience",
+      "cupsOfCoffee": "Cups of Coffee"
+    },
+    "philosophy": "Philosophy",
+    "philosophyText": "I believe in the power of thoughtful design and clean code. Every interaction, every animation, and every line of code should serve a purpose. It's this attention to detail that transforms good software into exceptional experiences."
+  }
+}
