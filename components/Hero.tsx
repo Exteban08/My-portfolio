@@ -1,14 +1,6 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const RESUME_PATHS = {
-  en: '/documents/resume-en.pdf',
-  es: '/documents/resume-es.pdf',
-} as const;
-
-/** Same filename in every locale; content still follows UI language. */
-const RESUME_DOWNLOAD_FILENAME = 'Esteban-Gonzalez-CV.pdf';
-
 export default function Hero() {
   const { t, currentLanguage } = useLanguage();
 
@@ -16,17 +8,11 @@ export default function Hero() {
     document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  /** Uses /api/resume so the response sets Content-Disposition; Chrome then saves as Esteban-Gonzalez-CV.pdf. */
   const handleDownloadResume = () => {
     const code = currentLanguage.split('-')[0]?.toLowerCase() ?? 'en';
-    const isSpanish = code === 'es';
-    const href = isSpanish ? RESUME_PATHS.es : RESUME_PATHS.en;
-
-    const link = document.createElement('a');
-    link.href = href;
-    link.download = RESUME_DOWNLOAD_FILENAME;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const lang = code === 'es' ? 'es' : 'en';
+    window.location.assign(`/api/resume?lang=${lang}`);
   };
 
   return (
