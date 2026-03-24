@@ -1,16 +1,32 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const RESUME_PATHS = {
+  en: '/documents/resume-en.pdf',
+  es: '/documents/resume-es.pdf',
+} as const;
+
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
 
   const scrollToWork = () => {
     document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownloadResume = () => {
-    // TODO: link to actual resume file in /public/resume.pdf
-    console.log('Downloading resume...');
+    const code = currentLanguage.split('-')[0]?.toLowerCase() ?? 'en';
+    const isSpanish = code === 'es';
+    const href = isSpanish ? RESUME_PATHS.es : RESUME_PATHS.en;
+    const downloadName = isSpanish
+      ? 'Esteban-Gonzalez-CV.pdf'
+      : 'Esteban-Gonzalez-Resume.pdf';
+
+    const link = document.createElement('a');
+    link.href = href;
+    link.download = downloadName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

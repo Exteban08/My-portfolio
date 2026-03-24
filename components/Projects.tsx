@@ -72,12 +72,6 @@ export default function Projects() {
                     <span className="bg-stone-900/90 dark:bg-stone-50/95 text-stone-50 dark:text-stone-900 px-3 py-1 text-xs font-light tracking-wider backdrop-blur-sm">
                       {project.category}
                     </span>
-                    {project.featured && (
-                      <span className="bg-amber-400/95 text-stone-900 px-3 py-1 text-xs font-medium tracking-wider flex items-center gap-1 backdrop-blur-sm">
-                        <Star className="w-3 h-3" />
-                        {t('projects.featuredBadge')}
-                      </span>
-                    )}
                   </div>
                 </ProjectCardCover>
 
