@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Github, Star } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import {
   deployedProjects,
   githubProjects,
