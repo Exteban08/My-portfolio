@@ -1,52 +1,147 @@
 {
   "navigation": {
-    "work": "Trabajo",
+    "work": "Proyectos",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
     "about": "Acerca de",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "jobTitle": "Ingeniero de Software"
   },
   "hero": {
-    "title": "Creando Experiencias",
-    "titleHighlight": "Digitales",
-    "subtitle": "Ingeniero de software orientado a la precisión, con atención al detalle y ojo para la elegancia",
-    "description": "Me especializo en desarrollar aplicaciones web sofisticadas con atención meticulosa al rendimiento, accesibilidad y experiencia de usuario. Cada línea de código está elaborada con intención.",
+    "title": "Ingeniero",
+    "titleHighlight": "de Software",
+    "locationLine": "Guadalajara, México · Abierto a nuevas oportunidades",
+    "subtitle": "4+ años construyendo productos web y móviles escalables",
+    "description": "Desarrollo software de extremo a extremo — desde interfaces pulidas hasta APIs en la nube. React, TypeScript, Django y AWS son mi día a día. Me importan el rendimiento, el código mantenible y el detalle.",
     "viewWork": "Ver Mi Trabajo",
     "downloadResume": "Descargar CV"
   },
   "projects": {
     "title": "Trabajo Seleccionado",
-    "subtitle": "Una selección de proyectos que demuestran desarrollo preciso y diseño cuidadoso",
+    "subtitle": "Productos en producción y proyectos de código abierto con impacto real",
+    "liveProjects": "Proyectos en Vivo",
+    "githubProjects": "Código Abierto",
+    "visitSite": "Visitar Sitio",
+    "viewOnGithub": "Ver en GitHub",
     "viewProject": "Ver Proyecto",
     "liveDemo": "Demo en Vivo",
     "source": "Código",
-    "viewAllProjects": "Ver Todos los Proyectos"
+    "viewAllProjects": "Ver Todo en GitHub",
+    "featuredBadge": "Destacado",
+    "githubEmptyTitle": "Más proyectos en GitHub",
+    "githubEmptySubtitle": "Revisa mi perfil de GitHub para encontrar experimentos, proyectos personales y contribuciones open-source.",
+    "visitGithub": "Visitar Perfil de GitHub"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "De la automatización industrial al software full stack — pensamiento de sistemas aplicado al producto",
+    "current": "Actual",
+    "showDetails": "Ver detalles",
+    "hideDetails": "Ocultar detalles",
+    "timeline": {
+      "consultoria-as": {
+        "role": "Ingeniero Full-Stack",
+        "company": "Consultoría AS",
+        "period": "Oct 2025 – Actual",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Plataformas para hoteles: reservas, facturación y operación diaria.",
+          "Monitoreo de agua en tiempo real para servicios públicos — consumo y detección de anomalías.",
+          "AWS (S3, RDS, EC2) para entornos y despliegues confiables.",
+          "Aplicaciones web y APIs REST con foco en rendimiento, de frontend a backend."
+        ]
+      },
+      "multiburo": {
+        "role": "Desarrollador Full-Stack",
+        "company": "Multiburó",
+        "period": "Mar 2025 – Jul 2025",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Herramientas internas y paneles admin con React, Redux, TypeScript y Ant Design.",
+          "APIs REST modulares en Django y CRUD para datos internos.",
+          "Entrega ágil con iteraciones rápidas y responsabilidad clara."
+        ]
+      },
+      "intouchcx": {
+        "role": "Especialista en Desarrollo de Software",
+        "company": "IntouchCX (antes Beliveo)",
+        "period": "Abr 2022 – Mar 2025",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Aplicaciones internas con React, Redux y TypeScript — interfaces responsivas y con muchos datos.",
+          "Tiempo real con Socket.io y suscripciones GraphQL.",
+          "Integraciones con Google Maps y META; rendimiento de BD con Sequelize y Prisma.",
+          "Pipelines en AWS (S3, RDS, EC2, CodePipeline) y apps con React Native."
+        ]
+      },
+      "zf-suspension": {
+        "role": "Ingeniero de Proyecto",
+        "company": "ZF Suspension Technology Guadalajara",
+        "period": "Jul 2018 – Ene 2022",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Trabajo con ingeniería de producto en especificaciones de amortiguadores — colaboración estrecha entre diseño y planta.",
+          "Soluciones de monitoreo para equipos neumáticos e hidráulicos (temperatura, presión, fugas).",
+          "Programación y afinado de robots de soldadura FANUC — rápida adopción de herramientas industriales.",
+          "Estudio formal y proyectos paralelos para dar el salto de ingeniería mecánica/eléctrica al desarrollo web."
+        ]
+      },
+      "zoltek": {
+        "role": "Ingeniero de Proyecto en prácticas",
+        "company": "Zoltek (Grupo Toray)",
+        "period": "Jul 2017 – Jun 2018",
+        "location": "El Salto, Jalisco, México",
+        "highlights": [
+          "Apoyo a ingeniería de proyectos en entorno de manufactura de fibra de carbono — especificaciones, tiempos y seguimiento con equipos.",
+          "Apoyo en documentación técnica y seguimiento de entregables junto a ingenieros senior.",
+          "Rotación por áreas de planta para conocer producción, calidad y cómo las decisiones de ingeniería impactan operación.",
+          "Base sólida en trabajo industrial antes de pasar a roles formales de ingeniero de proyecto."
+        ]
+      }
+    }
   },
   "skills": {
-    "title": "Experiencia",
-    "subtitle": "Habilidades integrales perfeccionadas a través de años de desarrollo preciso",
+    "title": "Habilidades",
+    "subtitle": "Tecnologías con las que trabajo cada día y herramientas que he llevado a producción",
     "foundations": "Fundamentos",
     "advanced": "Avanzado",
     "expert": "Experto",
-    "description": "Expandiendo continuamente mis herramientas con tecnologías emergentes y mejores prácticas. Cada proyecto presenta una oportunidad para refinar y mejorar estas capacidades.",
+    "description": "Expandiendo continuamente mi conjunto de herramientas con tecnologías emergentes y mejores prácticas. Cada proyecto es una oportunidad para profundizar en estas capacidades.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "tools": "Herramientas",
-      "design": "Diseño"
+      "cloud": "Cloud / DevOps",
+      "mobile": "Mobile",
+      "tools": "Herramientas y Métodos"
     }
   },
   "about": {
     "title": "Acerca de Mí",
-    "subtitle": "Creando Experiencias Digitales",
-    "description1": "Soy un ingeniero de software apasionado por crear aplicaciones elegantes y de alto rendimiento. Mi enfoque combina precisión técnica con diseño cuidadoso, resultando en experiencias digitales que se sienten tanto poderosas como intuitivas.",
-    "description2": "Con experiencia tanto en desarrollo frontend como backend, me especializo en soluciones full-stack escalables. Cada proyecto es una oportunidad para superar límites y entregar algo excepcional.",
-    "description3": "Cuando no estoy programando, me encontrarás explorando nuevas tecnologías, contribuyendo a proyectos de código abierto, o disfrutando de los detalles del equipo de audio y el diseño minimalista.",
+    "subtitle": "Ingeniero. Builder. Co-fundador.",
+    "description1": "Soy Ingeniero de Software en Guadalajara, México, con 4+ años construyendo aplicaciones web y móviles. Me inclino al frontend con React y TypeScript, y también desarrollo APIs en Django e infraestructura en la nube.",
+    "education": "Tengo título en Ingeniería Mecánica Eléctrica por la Universidad de Guadalajara — una base que sigue influyendo en cómo abordo sistemas, restricciones y problemas del mundo físico.",
+    "description2": "He trabajado en entornos desde startups de alto crecimiento hasta equipos enterprise en empresas como IntouchCX, donde construí sistemas en tiempo real, plataformas desplegadas en AWS y apps móviles multiplataforma.",
+    "description3": "Fuera del código, disfruto explorar nuevas herramientas, contribuir a open-source y elevar el estándar de calidad en todo lo que envío.",
     "stats": {
-      "projectsCompleted": "Proyectos Completados",
-      "happyClients": "Clientes Satisfechos",
+      "projectsCompleted": "Proyectos Entregados",
       "yearsExperience": "Años de Experiencia",
-      "cupsOfCoffee": "Tazas de Café"
+      "companiesWorked": "Empresas",
+      "technologiesUsed": "Tecnologías"
     },
-    "philosophy": "Filosofía",
-    "philosophyText": "Creo en el poder del diseño cuidadoso y el código limpio. Cada interacción, cada animación y cada línea de código debe servir un propósito. Es esta atención al detalle lo que transforma el buen software en experiencias excepcionales."
+    "cofounder": {
+      "badge": "Co-fundador & CTO",
+      "company": "EVA Protect",
+      "description": "Plataforma insurtech enfocada en protección personal y de activos. Co-fundé EVA Protect y lidero todas las decisiones técnicas — desde la arquitectura e infraestructura hasta el producto y el equipo.",
+      "visitLink": "Visitar evaprotect.com"
+    },
+    "philosophy": "Cómo Trabajo",
+    "philosophyText": "Creo que el código limpio y bien estructurado y la buena UX no son opuestos — se refuerzan mutuamente. Construyo con escalabilidad en mente desde el día uno, y presto atención a los detalles que transforman el buen software en un software excelente."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Escríbeme para colaboraciones, oportunidades o simplemente para saludar.",
+    "emailLabel": "Correo",
+    "whatsappLabel": "WhatsApp",
+    "linkedinLabel": "LinkedIn"
   }
 }

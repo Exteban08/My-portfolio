@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Class-based dark mode for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 /* Custom styles for premium portfolio */
 html {
   scroll-behavior: smooth;
@@ -13,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Light scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -28,6 +31,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+/* Dark scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #57534e;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #78716c;
 }
 

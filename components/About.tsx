@@ -1,98 +1,89 @@
 import { useState, useEffect, useRef } from 'react';
-import { Award, Users, Code, Coffee } from 'lucide-react';
+import { ExternalLink, Code, Briefcase, Building2, Layers } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
-  const [rotation, setRotation] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRotation(prev => (prev + 0.5) % 360);
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const stats = [
-    { icon: Code, label: t('about.stats.projectsCompleted'), value: '50+' },
-    { icon: Users, label: t('about.stats.happyClients'), value: '25+' },
-    { icon: Award, label: t('about.stats.yearsExperience'), value: '5+' },
-    { icon: Coffee, label: t('about.stats.cupsOfCoffee'), value: '2000+' },
+    { icon: Code, label: t('about.stats.projectsCompleted'), value: '15+' },
+    { icon: Briefcase, label: t('about.stats.yearsExperience'), value: '4+' },
+    { icon: Building2, label: t('about.stats.companiesWorked'), value: '5' },
+    { icon: Layers, label: t('about.stats.technologiesUsed'), value: '20+' },
   ];
 
   return (
     <section
       id="about"
       ref={sectionRef}
-      className="py-32 bg-stone-50 px-4 md:px-8"
+      className="py-32 bg-white dark:bg-stone-950 px-4 md:px-8"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight text-stone-900 tracking-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-extralight text-stone-900 dark:text-stone-50 tracking-tight mb-6">
             {t('about.title')}
           </h2>
-          <div className="w-16 h-px bg-stone-300 mx-auto mb-8" />
+          <div className="w-16 h-px bg-stone-300 dark:bg-stone-600 mx-auto mb-8" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Text Content */}
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          {/* Left — Bio */}
           <div
-            className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`space-y-6 transition-all duration-1000 ${
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
           >
-            <div>
-              <h3 className="text-2xl font-light text-stone-900 tracking-tight mb-6">
-                {t('about.subtitle')}
-              </h3>
-              <p className="text-lg text-stone-600 font-light leading-relaxed mb-6">
-                {t('about.description1')}
-              </p>
-              <p className="text-lg text-stone-600 font-light leading-relaxed mb-6">
-                {t('about.description2')}
-              </p>
-              <p className="text-lg text-stone-600 font-light leading-relaxed">
-                {t('about.description3')}
-              </p>
-            </div>
+            <h3 className="text-2xl font-light text-stone-900 dark:text-stone-50 tracking-tight">
+              {t('about.subtitle')}
+            </h3>
+            <p className="text-lg text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+              {t('about.description1')}
+            </p>
+            <p className="text-lg text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+              {t('about.education')}
+            </p>
+            <p className="text-lg text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+              {t('about.description2')}
+            </p>
+            <p className="text-lg text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+              {t('about.description3')}
+            </p>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 pt-8">
-              {stats.map((stat, index) => (
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-5 pt-4">
+              {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`text-center transition-all duration-700 delay-${index * 100} ${
+                  className={`border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-5 transition-all duration-700 ${
                     isVisible
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
                   }`}
+                  style={{ transitionDelay: `${200 + i * 100}ms` }}
                 >
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-stone-200 flex items-center justify-center">
-                    <stat.icon className="w-6 h-6 text-stone-600" />
+                  <div className="flex items-center gap-3 mb-2">
+                    <stat.icon className="w-4 h-4 text-stone-500 dark:text-stone-400 shrink-0" />
+                    <div className="text-2xl font-light text-stone-900 dark:text-stone-50 tracking-tight">
+                      {stat.value}
+                    </div>
                   </div>
-                  <div className="text-2xl font-light text-stone-900 tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-stone-500 font-light tracking-wide">
+                  <div className="text-xs text-stone-500 dark:text-stone-400 font-light tracking-wide uppercase">
                     {stat.label}
                   </div>
                 </div>
@@ -100,75 +91,52 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column - Circular Visualization */}
+          {/* Right — EVA Protect card + Philosophy */}
           <div
-            className={`relative flex items-center justify-center transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            className={`space-y-8 transition-all duration-1000 delay-300 ${
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
             }`}
           >
-            {/* Outer Circle */}
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
-              {/* Background Circles */}
-              <div className="absolute inset-0 rounded-full border border-stone-200" />
-              <div className="absolute inset-8 rounded-full border border-stone-200" />
-              <div className="absolute inset-16 rounded-full border border-stone-200" />
-
-              {/* Rotating Inner Circle */}
-              <div
-                className="absolute inset-20 rounded-full border-2 border-stone-900 transition-transform duration-75"
-                style={{ transform: `rotate(${rotation}deg)` }}
-              />
-
-              {/* Central Content */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-stone-900 flex items-center justify-center">
-                    <span className="text-stone-50 text-xl font-light tracking-wider">
-                      E
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-light text-stone-900 tracking-wide mb-2">
-                    Esteban
+            {/* EVA Protect co-founder highlight */}
+            <div className="border border-stone-800 dark:border-stone-600 bg-stone-900 dark:bg-stone-800 text-stone-50 p-8">
+              <div className="flex items-start gap-4 mb-5">
+                <div className="w-10 h-10 rounded-full bg-stone-50 dark:bg-stone-200 flex items-center justify-center shrink-0">
+                  <span className="text-stone-900 text-sm font-medium">E</span>
+                </div>
+                <div>
+                  <span className="text-xs font-light tracking-widest uppercase text-stone-400 block mb-1">
+                    {t('about.cofounder.badge')}
+                  </span>
+                  <h4 className="text-xl font-light tracking-tight">
+                    {t('about.cofounder.company')}
                   </h4>
-                  <p className="text-sm text-stone-500 font-light tracking-wider">
-                    Software Engineer
-                  </p>
                 </div>
               </div>
-
-              {/* Floating Elements */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-                <div className="w-3 h-3 rounded-full bg-stone-400 animate-pulse" />
-              </div>
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                <div className="w-2 h-2 rounded-full bg-stone-400 animate-pulse delay-1000" />
-              </div>
-              <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
-                <div className="w-2 h-2 rounded-full bg-stone-400 animate-pulse delay-500" />
-              </div>
-              <div className="absolute right-8 top-1/2 transform -translate-y-1/2">
-                <div className="w-2 h-2 rounded-full bg-stone-400 animate-pulse delay-1500" />
-              </div>
+              <p className="text-stone-400 font-light leading-relaxed text-sm mb-6">
+                {t('about.cofounder.description')}
+              </p>
+              <a
+                href="https://evaprotect.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-stone-50 border border-stone-600 hover:bg-stone-700 transition-colors duration-200 px-4 py-2 text-sm font-light tracking-wide"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                {t('about.cofounder.visitLink')}
+              </a>
             </div>
 
-            {/* Background Blur Effect */}
-            <div className="absolute inset-0 bg-stone-100/50 rounded-full blur-3xl" />
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div
-          className={`mt-20 text-center transition-all duration-1000 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl font-light text-stone-900 tracking-tight mb-6">
-              {t('about.philosophy')}
-            </h3>
-            <p className="text-lg text-stone-600 font-light leading-relaxed">
-              {t('about.philosophyText')}
-            </p>
+            {/* Philosophy */}
+            <div className="border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-900 p-8">
+              <h3 className="text-lg font-light text-stone-900 dark:text-stone-50 tracking-tight mb-4">
+                {t('about.philosophy')}
+              </h3>
+              <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed text-sm">
+                {t('about.philosophyText')}
+              </p>
+            </div>
           </div>
         </div>
       </div>

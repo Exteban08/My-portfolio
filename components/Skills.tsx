@@ -1,24 +1,60 @@
-import { useState, useEffect, useRef } from 'react';
-import { Skill } from '@/types';
+import { useEffect, useRef, useState } from 'react';
+import {
+  Monitor,
+  Server,
+  Cloud,
+  Smartphone,
+  Wrench,
+  LucideIcon,
+} from 'lucide-react';
+import { skillCategories } from '@/data/portfolio';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-interface SkillsProps {
-  skills?: Skill[];
-}
+const iconMap: Record<string, LucideIcon> = {
+  Monitor,
+  Server,
+  Cloud,
+  Smartphone,
+  Wrench,
+};
 
-const defaultSkills: Skill[] = [
-  { name: 'Frontend Development', level: 95, category: 'frontend' },
-  { name: 'Backend Architecture', level: 90, category: 'backend' },
-  { name: 'Database Design', level: 85, category: 'backend' },
-  { name: 'DevOps & Cloud', level: 80, category: 'tools' },
-  { name: 'Mobile Development', level: 75, category: 'frontend' },
-  { name: 'UI/UX Design', level: 70, category: 'design' },
-];
+const colorMap: Record<
+  string,
+  { bg: string; text: string; border: string; dot: string }
+> = {
+  blue: {
+    bg: 'bg-blue-50 dark:bg-blue-900/30',
+    text: 'text-blue-700 dark:text-blue-300',
+    border: 'border-blue-200 dark:border-blue-800',
+    dot: 'bg-blue-400 dark:bg-blue-500',
+  },
+  emerald: {
+    bg: 'bg-emerald-50 dark:bg-emerald-900/30',
+    text: 'text-emerald-700 dark:text-emerald-300',
+    border: 'border-emerald-200 dark:border-emerald-800',
+    dot: 'bg-emerald-400 dark:bg-emerald-500',
+  },
+  orange: {
+    bg: 'bg-orange-50 dark:bg-orange-900/30',
+    text: 'text-orange-700 dark:text-orange-300',
+    border: 'border-orange-200 dark:border-orange-800',
+    dot: 'bg-orange-400 dark:bg-orange-500',
+  },
+  purple: {
+    bg: 'bg-purple-50 dark:bg-purple-900/30',
+    text: 'text-purple-700 dark:text-purple-300',
+    border: 'border-purple-200 dark:border-purple-800',
+    dot: 'bg-purple-400 dark:bg-purple-500',
+  },
+  stone: {
+    bg: 'bg-stone-100 dark:bg-stone-700/50',
+    text: 'text-stone-700 dark:text-stone-300',
+    border: 'border-stone-200 dark:border-stone-600',
+    dot: 'bg-stone-400 dark:bg-stone-500',
+  },
+};
 
-export default function Skills({ skills = defaultSkills }: SkillsProps) {
-  const [animatedSkills, setAnimatedSkills] = useState<Skill[]>(
-    skills.map(skill => ({ ...skill, level: 0 }))
-  );
+export default function Skills() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const { t } = useLanguage();
@@ -26,131 +62,82 @@ export default function Skills({ skills = defaultSkills }: SkillsProps) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-          // Animate each skill with a slight delay
-          skills.forEach((skill, index) => {
-            setTimeout(() => {
-              setAnimatedSkills(prev =>
-                prev.map(s =>
-                  s.name === skill.name ? { ...s, level: skill.level } : s
-                )
-              );
-            }, index * 150);
-          });
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [skills, isVisible]);
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'frontend':
-        return 'from-blue-500 to-blue-600';
-      case 'backend':
-        return 'from-green-500 to-green-600';
-      case 'tools':
-        return 'from-purple-500 to-purple-600';
-      case 'design':
-        return 'from-pink-500 to-pink-600';
-      default:
-        return 'from-stone-500 to-stone-600';
-    }
-  };
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'frontend':
-        return '🎨';
-      case 'backend':
-        return '⚙️';
-      case 'tools':
-        return '🔧';
-      case 'design':
-        return '✨';
-      default:
-        return '💼';
-    }
-  };
+  }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="py-32 bg-stone-50 dark:bg-stone-900 px-4 md:px-8"
+    >
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight text-stone-900 tracking-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-extralight text-stone-900 dark:text-stone-50 tracking-tight mb-6">
             {t('skills.title')}
           </h2>
-          <div className="w-16 h-px bg-stone-300 mx-auto mb-8" />
-          <p className="text-xl text-stone-600 font-light tracking-wide leading-relaxed">
+          <div className="w-16 h-px bg-stone-300 dark:bg-stone-600 mx-auto mb-8" />
+          <p className="text-xl text-stone-600 dark:text-stone-400 font-light tracking-wide leading-relaxed max-w-2xl mx-auto">
             {t('skills.subtitle')}
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="space-y-8">
-          {animatedSkills.map((skill, index) => (
-            <div key={skill.name} className="group">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">
-                    {getCategoryIcon(skill.category)}
-                  </span>
-                  <span className="text-lg font-light text-stone-900 tracking-wide">
-                    {skill.name}
-                  </span>
-                </div>
-                <span className="text-sm font-light text-stone-500 tabular-nums">
-                  {skill.level}%
-                </span>
-              </div>
+        {/* Categories grid */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {skillCategories.map((category, index) => {
+            const Icon = iconMap[category.icon] ?? Monitor;
+            const colors = colorMap[category.color] ?? colorMap.stone;
 
-              {/* Progress Bar */}
-              <div className="relative h-px bg-stone-200 overflow-hidden">
-                <div
-                  className={`absolute top-0 left-0 h-full bg-gradient-to-r ${getCategoryColor(skill.category)} transition-all duration-1000 ease-out`}
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
+            return (
+              <div
+                key={category.id}
+                className={`bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 p-7 transition-all duration-700 ${
+                  isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className={`w-9 h-9 rounded-full ${colors.bg} flex items-center justify-center shrink-0`}
+                  >
+                    <Icon className={`w-4 h-4 ${colors.text}`} />
+                  </div>
+                  <h3 className="text-base font-light text-stone-900 dark:text-stone-50 tracking-wide">
+                    {t(`skills.categories.${category.id}`)}
+                  </h3>
+                  <div className={`ml-auto w-2 h-2 rounded-full ${colors.dot}`} />
+                </div>
 
-              {/* Hover Effect */}
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-                <div className="flex justify-between text-xs text-stone-400 font-light">
-                  <span>{t('skills.foundations')}</span>
-                  <span>{t('skills.advanced')}</span>
-                  <span>{t('skills.expert')}</span>
+                {/* Skills badges */}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map(skill => (
+                    <span
+                      key={skill}
+                      className={`${colors.bg} ${colors.text} ${colors.border} border px-3 py-1.5 text-xs font-light tracking-wide rounded-full transition-all duration-150 hover:opacity-80`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <p className="text-stone-500 font-light leading-relaxed max-w-2xl mx-auto">
+        {/* Footer note */}
+        <div className="mt-14 text-center">
+          <p className="text-stone-500 dark:text-stone-400 font-light leading-relaxed max-w-2xl mx-auto">
             {t('skills.description')}
           </p>
-        </div>
-
-        {/* Tech Categories */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {['frontend', 'backend', 'tools', 'design'].map(category => (
-            <div key={category} className="text-center">
-              <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-stone-100 flex items-center justify-center">
-                <span className="text-2xl">{getCategoryIcon(category)}</span>
-              </div>
-              <h3 className="text-sm font-light text-stone-900 tracking-wide">
-                {t(`skills.categories.${category}`)}
-              </h3>
-            </div>
-          ))}
         </div>
       </div>
     </section>

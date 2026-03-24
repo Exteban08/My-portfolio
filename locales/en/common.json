@@ -1,52 +1,147 @@
 {
   "navigation": {
     "work": "Work",
+    "experience": "Experience",
+    "skills": "Skills",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "jobTitle": "Software Engineer"
   },
   "hero": {
-    "title": "Crafting Digital",
-    "titleHighlight": "Experiences",
-    "subtitle": "Precision-driven software engineering with an ear for detail and an eye for elegance",
-    "description": "I specialize in building sophisticated web applications with meticulous attention to performance, accessibility, and user experience. Every line of code is crafted with intention.",
+    "title": "Software",
+    "titleHighlight": "Engineer",
+    "locationLine": "Guadalajara, México · Open to new opportunities",
+    "subtitle": "4+ years shipping scalable web & mobile products",
+    "description": "I build end-to-end software — from polished UIs to APIs in the cloud. React, TypeScript, Django, and AWS are my day-to-day stack. I care about performance, maintainability, and craft.",
     "viewWork": "View My Work",
     "downloadResume": "Download Resume"
   },
   "projects": {
     "title": "Selected Work",
-    "subtitle": "A curated selection of projects that showcase precision engineering and thoughtful design",
+    "subtitle": "Live products and open-source projects reflecting real-world impact",
+    "liveProjects": "Live Projects",
+    "githubProjects": "Open Source",
+    "visitSite": "Visit Site",
+    "viewOnGithub": "View on GitHub",
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
     "source": "Source",
-    "viewAllProjects": "View All Projects"
+    "viewAllProjects": "View All on GitHub",
+    "featuredBadge": "Featured",
+    "githubEmptyTitle": "More projects on GitHub",
+    "githubEmptySubtitle": "Check out my GitHub profile for experiments, side projects, and open-source contributions.",
+    "visitGithub": "Visit GitHub Profile"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "From industrial automation to full-stack software — a path built on systems thinking",
+    "current": "Current",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "timeline": {
+      "consultoria-as": {
+        "role": "Full-Stack Engineer",
+        "company": "Consultoría AS",
+        "period": "Oct 2025 – Present",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Hotel platforms: reservations, billing, and day-to-day operations for hospitality clients.",
+          "Real-time water monitoring for utilities — consumption tracking and anomaly detection.",
+          "AWS (S3, RDS, EC2) for reliable environments and deployments.",
+          "Performance-minded web apps and REST APIs, frontend to backend."
+        ]
+      },
+      "multiburo": {
+        "role": "Full-Stack Developer",
+        "company": "Multiburó",
+        "period": "Mar 2025 – Jul 2025",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Internal tools and admin dashboards with React, Redux, TypeScript, and Ant Design.",
+          "Modular Django REST APIs and CRUD for internal data.",
+          "Agile delivery with fast iteration and clear ownership."
+        ]
+      },
+      "intouchcx": {
+        "role": "Software Developer Specialist",
+        "company": "IntouchCX (formerly Beliveo)",
+        "period": "Apr 2022 – Mar 2025",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Internal apps with React, Redux, and TypeScript — responsive, data-heavy UIs.",
+          "Real-time features with Socket.io and GraphQL subscriptions.",
+          "Google Maps and META integrations; DB performance with Sequelize and Prisma.",
+          "AWS pipelines (S3, RDS, EC2, CodePipeline) and React Native apps."
+        ]
+      },
+      "zf-suspension": {
+        "role": "Project Engineer",
+        "company": "ZF Suspension Technology Guadalajara",
+        "period": "Jul 2018 – Jan 2022",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Partnered with product engineering on shock absorber specs — tight collaboration between design and execution.",
+          "Built monitoring solutions for pneumatic and hydraulic equipment (temperature, pressure, leak detection).",
+          "Programmed and tuned FANUC welding robots — quick to adopt new industrial tooling.",
+          "Formal study and side projects to pivot from mechanical/electrical engineering into web development."
+        ]
+      },
+      "zoltek": {
+        "role": "Project Engineer Trainee",
+        "company": "Zoltek (Grupo Toray)",
+        "period": "Jul 2017 – Jun 2018",
+        "location": "El Salto, Jalisco, Mexico",
+        "highlights": [
+          "Supported project engineering in a carbon fiber manufacturing environment — specs, schedules, and stakeholder follow-up.",
+          "Helped prepare technical documentation and track deliverables alongside senior engineers.",
+          "Rotated through plant areas to understand production, quality, and how engineering decisions hit the floor.",
+          "Built a solid base in industrial teamwork before moving into full-time project engineering roles."
+        ]
+      }
+    }
   },
   "skills": {
-    "title": "Expertise",
-    "subtitle": "A comprehensive skill set honed through years of precision engineering",
+    "title": "Skills",
+    "subtitle": "Technologies I work with every day and tools I've shipped to production",
     "foundations": "Foundations",
     "advanced": "Advanced",
     "expert": "Expert",
-    "description": "Continuously expanding my toolkit with emerging technologies and best practices. Each project presents an opportunity to refine and enhance these capabilities.",
+    "description": "Continuously expanding my toolkit with emerging technologies and best practices. Each project presents an opportunity to deepen these capabilities.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "tools": "Tools",
-      "design": "Design"
+      "cloud": "Cloud / DevOps",
+      "mobile": "Mobile",
+      "tools": "Tools & Methods"
     }
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Crafting Digital Experiences",
-    "description1": "I'm a software engineer with a passion for creating elegant, performant applications. My approach combines technical precision with thoughtful design, resulting in digital experiences that feel both powerful and intuitive.",
-    "description2": "With a background in both frontend and backend development, I specialize in full-stack solutions that scale. Every project is an opportunity to push boundaries and deliver something exceptional.",
-    "description3": "When I'm not coding, you'll find me exploring new technologies, contributing to open source projects, or enjoying the finer details of audio equipment and minimalist design.",
+    "subtitle": "Engineer. Builder. Co-founder.",
+    "description1": "I'm a Software Engineer based in Guadalajara, México, with 4+ years building web and mobile applications. I lean toward frontend with React and TypeScript, and I'm just as comfortable shipping Django APIs and cloud infrastructure.",
+    "education": "I earned my degree in Mechanical and Electrical Engineering (Ingeniería Mecánica Eléctrica) from Universidad de Guadalajara — a foundation that still shapes how I think about systems, constraints, and problems in the physical world.",
+    "description2": "I've worked in environments ranging from high-growth startups to enterprise teams at companies like IntouchCX, where I built real-time systems, AWS-deployed platforms, and cross-platform mobile apps.",
+    "description3": "Outside of code, I enjoy exploring new tools, contributing to open-source, and pushing the quality bar on everything I ship.",
     "stats": {
-      "projectsCompleted": "Projects Completed",
-      "happyClients": "Happy Clients",
+      "projectsCompleted": "Projects Shipped",
       "yearsExperience": "Years Experience",
-      "cupsOfCoffee": "Cups of Coffee"
+      "companiesWorked": "Companies",
+      "technologiesUsed": "Technologies"
     },
-    "philosophy": "Philosophy",
-    "philosophyText": "I believe in the power of thoughtful design and clean code. Every interaction, every animation, and every line of code should serve a purpose. It's this attention to detail that transforms good software into exceptional experiences."
+    "cofounder": {
+      "badge": "Co-founder & CTO",
+      "company": "EVA Protect",
+      "description": "Insurance technology platform focused on personal and asset protection. I co-founded EVA Protect and lead all technical decisions — from architecture and infrastructure to product and team.",
+      "visitLink": "Visit evaprotect.com"
+    },
+    "philosophy": "How I Work",
+    "philosophyText": "I believe clean, well-structured code and thoughtful UX are not opposites — they reinforce each other. I build with scalability in mind from day one, and I pay attention to the details that turn good software into great software."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Reach out for collaborations, opportunities, or just to say hello.",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "linkedinLabel": "LinkedIn"
   }
 }

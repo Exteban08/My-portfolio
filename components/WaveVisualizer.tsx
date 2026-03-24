@@ -30,9 +30,7 @@ export default function WaveVisualizer({
     }, 80);
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, []);
 
@@ -47,11 +45,8 @@ export default function WaveVisualizer({
           return (
             <div
               key={i}
-              className={`${barClasses[size]} bg-gradient-to-t from-stone-400 to-stone-300 transition-all duration-100 ease-out`}
-              style={{
-                height: `${height}px`,
-                minHeight: '4px',
-              }}
+              className={`${barClasses[size]} bg-gradient-to-t from-stone-400 dark:from-stone-500 to-stone-300 dark:to-stone-400 transition-all duration-100 ease-out`}
+              style={{ height: `${height}px`, minHeight: '4px' }}
             />
           );
         })}

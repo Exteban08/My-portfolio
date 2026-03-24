@@ -5,73 +5,93 @@ export default function Hero() {
   const { t } = useLanguage();
 
   const scrollToWork = () => {
-    const element = document.querySelector('#work');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownloadResume = () => {
-    // In a real implementation, you would download the actual resume file
+    // TODO: link to actual resume file in /public/resume.pdf
     console.log('Downloading resume...');
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-stone-50 px-4 md:px-8 pt-20">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Main Heading */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-extralight text-stone-900 tracking-tight mb-6">
-            {t('hero.title')}
-            <br />
-            <span className="font-light">{t('hero.titleHighlight')}</span>
-          </h1>
+    <section className="relative min-h-screen flex items-center justify-center bg-stone-50 dark:bg-stone-900 px-4 md:px-8 pt-20">
+      <div className="max-w-5xl mx-auto w-full">
+        {/* Label */}
+        <div className="flex justify-center mb-8">
+          <span className="text-xs font-light tracking-widest uppercase text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 px-4 py-2">
+            {t('hero.locationLine')}
+          </span>
+        </div>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-stone-600 font-light tracking-wide leading-relaxed max-w-3xl mx-auto">
-            {t('hero.subtitle')}
-          </p>
+        {/* Main heading */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-7xl lg:text-9xl font-extralight text-stone-900 dark:text-stone-50 tracking-tight leading-none mb-4">
+            {t('hero.title')}
+          </h1>
+          <h1 className="text-5xl md:text-7xl lg:text-9xl font-light text-stone-900 dark:text-stone-50 tracking-tight leading-none">
+            {t('hero.titleHighlight')}
+          </h1>
         </div>
 
         {/* Divider */}
-        <div className="w-16 h-px bg-stone-300 mx-auto mb-12" />
+        <div className="w-16 h-px bg-stone-300 dark:bg-stone-600 mx-auto mb-10" />
 
-        {/* Description */}
-        <div className="mb-16 max-w-2xl mx-auto">
-          <p className="text-lg text-stone-500 font-light leading-relaxed">
+        {/* Subtitle + Description */}
+        <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
+          <p className="text-xl md:text-2xl text-stone-700 dark:text-stone-300 font-light tracking-wide">
+            {t('hero.subtitle')}
+          </p>
+          <p className="text-base md:text-lg text-stone-500 dark:text-stone-400 font-light leading-relaxed">
             {t('hero.description')}
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+        {/* CTAs — same width & height on mobile */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-sm sm:max-w-none mx-auto">
           <button
+            type="button"
             onClick={scrollToWork}
-            className="group bg-stone-900 text-stone-50 px-8 py-4 rounded-none font-light tracking-wide transition-all duration-200 hover:bg-stone-800 hover:scale-105 flex items-center gap-3 cursor-pointer"
+            className="group bg-stone-900 dark:bg-stone-50 text-stone-50 dark:text-stone-900 min-h-12 px-6 sm:px-8 font-light text-sm sm:text-base tracking-wide transition-all duration-200 hover:bg-stone-800 dark:hover:bg-stone-200 sm:hover:scale-105 flex items-center justify-center gap-3 cursor-pointer w-full sm:w-auto"
           >
             {t('hero.viewWork')}
-            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
           </button>
 
           <button
+            type="button"
             onClick={handleDownloadResume}
-            className="group border border-stone-300 text-stone-900 px-8 py-4 rounded-none font-light tracking-wide transition-all duration-200 hover:bg-stone-100 hover:border-stone-400 flex items-center gap-3 cursor-pointer"
+            className="group border border-stone-300 dark:border-stone-600 text-stone-900 dark:text-stone-50 min-h-12 px-6 sm:px-8 font-light text-sm sm:text-base tracking-wide transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-800 hover:border-stone-400 dark:hover:border-stone-500 flex items-center justify-center gap-3 cursor-pointer w-full sm:w-auto"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 shrink-0" />
             {t('hero.downloadResume')}
           </button>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-px h-12 bg-gradient-to-b from-stone-400 to-transparent" />
+        {/* Tech pills */}
+        <div className="flex flex-wrap justify-center gap-2 mt-14">
+          {[
+            'React',
+            'TypeScript',
+            'Next.js',
+            'Django',
+            'AWS',
+            'React Native',
+            'GraphQL',
+          ].map(tech => (
+            <span
+              key={tech}
+              className="text-xs font-light tracking-wide text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 px-3 py-1.5 hover:border-stone-300 dark:hover:border-stone-500 hover:text-stone-700 dark:hover:text-stone-200 transition-colors duration-200"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-stone-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-stone-300/20 rounded-full blur-3xl" />
+      {/* Background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-stone-200/30 dark:bg-stone-700/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-stone-300/20 dark:bg-stone-600/10 rounded-full blur-3xl" />
       </div>
     </section>
   );
