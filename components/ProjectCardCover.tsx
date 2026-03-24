@@ -23,6 +23,8 @@ export default function ProjectCardCover({
   return (
     <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-stone-100 dark:from-stone-700 to-stone-200 dark:to-stone-600">
       {image && showImage && (
+        // Local static previews under /public; <img> allows graceful onError fallback
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={image}
           alt={`${title} — preview`}
