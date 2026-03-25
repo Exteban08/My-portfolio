@@ -62,11 +62,16 @@ export const deployedProjects: DeployedProject[] = [
     id: 'eva-protect',
     title: 'EVA Protect',
     description:
-      'InsurTech platform focused on personal and asset protection. Designed and built the product architecture from the ground up — from infrastructure to user-facing features.',
+      'InsurTech platform focused on personal and asset protection — architecture and product from the ground up.',
     role: 'Co-founder & CTO',
     highlight: 'Co-founder & CTO',
-    url: 'https://web.evaprotect.com',
     image: '/images/eva-protect.webp',
+    gallery: [
+      { src: '/images/dashboard-desktop.webp', captionKey: 'dashboardDesktop' },
+      { src: '/images/dashboard-mobile.webp', captionKey: 'dashboardMobile' },
+      { src: '/images/gps-desktop.webp', captionKey: 'gpsDesktop' },
+      { src: '/images/gps-mobile.webp', captionKey: 'gpsMobile' },
+    ],
     tech: ['Next.js', 'React', 'TypeScript', 'AWS'],
     category: 'InsurTech / SaaS',
     featured: true,
@@ -75,7 +80,7 @@ export const deployedProjects: DeployedProject[] = [
     id: 'yayo-photo-film',
     title: 'Yayo Photo Film',
     description:
-      'Photographer portfolio and booking experience built with Astro: public gallery, Supabase for storing and serving images, and a manager area to maintain content.',
+      'Photographer portfolio and booking flow with Astro, Supabase-backed media, and a manager area for content updates.',
     url: 'https://yayo-photo-film.vercel.app/',
     image: '/images/yayo-photo-film.webp',
     tech: ['Astro', 'Supabase', 'TypeScript', 'CSS'],
@@ -85,7 +90,7 @@ export const deployedProjects: DeployedProject[] = [
     id: 'pokeshop',
     title: 'PokeShop',
     description:
-      'Front-end storefront-style UI focused on client state: React Context for a favorites cache and Pokémon listing flows (Multiburó challenge).',
+      'Storefront-style React + Vite demo: Context state, listing cache, favorites, and per-Pokémon details and costs.',
     url: 'https://pokeshop-ashy.vercel.app/',
     github: 'https://github.com/Exteban08/Pokeshop',
     image: '/images/pokeshop.webp',

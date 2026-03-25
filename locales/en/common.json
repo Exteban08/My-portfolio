@@ -30,7 +30,49 @@
     "featuredBadge": "Featured",
     "githubEmptyTitle": "More projects on GitHub",
     "githubEmptySubtitle": "Check out my GitHub profile for experiments, side projects, and open-source contributions.",
-    "visitGithub": "Visit GitHub Profile"
+    "visitGithub": "Visit GitHub Profile",
+    "viewGallery": "View product screens",
+    "privateAppNote": "The live product is account-based; the images below are real UI from the platform so you can see the work without a login.",
+    "closeGallery": "Close gallery",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "caseStudy": {
+      "eva-protect": {
+        "lead": "EVA Protect is an InsurTech platform for personal and asset protection. As co-founder and CTO, I owned the technical side end to end: AWS infrastructure, a Next.js and TypeScript product, integrations, and the experiences both internal teams and users rely on daily. Because production access is gated, this case study replaces a generic “visit site” link with real screens from the app—so the scope of the build is visible without an account.",
+        "highlights": [
+          "End-to-end ownership from cloud architecture to shipped UI",
+          "Full-stack delivery: frontend, APIs, deployment, and operational hygiene",
+          "Responsive product: desktop workflows and mobile-critical journeys in one codebase",
+          "Built for operations—not a landing page: dashboards, data density, and clarity under load"
+        ],
+        "galleryCaptions": {
+          "dashboardDesktop": "Operations dashboard (desktop)—core overview and control surfaces for day-to-day work.",
+          "dashboardMobile": "Same product on mobile: layout and density tuned for small screens and touch.",
+          "gpsDesktop": "Location-aware flow (desktop)—maps and geo context integrated into the product journey.",
+          "gpsMobile": "Field-oriented mobile view: GPS and map UI where on-the-go access matters."
+        }
+      },
+      "yayo-photo-film": {
+        "lead": "A live photographer portfolio and booking-oriented site: public-facing gallery, fast loads, and a practical split between what visitors see and what the photographer can maintain without redeploying the whole site.",
+        "highlights": [
+          "Built with Astro for a lightweight, content-first public experience and selective interactivity where it matters",
+          "Supabase behind the scenes for storing and serving media—structured assets instead of hard-coding every image path",
+          "Dedicated manager-style area to update gallery content and keep the site fresh without touching production code on each change",
+          "Clear information architecture: showcase work first, then guide visitors toward booking or contact",
+          "Deployed and tuned for real traffic on Vercel—performance and UX treated as part of the product, not an afterthought"
+        ]
+      },
+      "pokeshop": {
+        "lead": "A storefront-style front end built to demonstrate deliberate client-side state: how to cache list data, keep per-Pokémon details handy, and derive things like pricing from that state so the UI stays fast and consistent as users explore the catalog.",
+        "highlights": [
+          "React Context as the app’s state layer—favorites, cached API payloads, and UI-derived values live in one predictable place",
+          "In-memory cache for listing data so revisiting grids or toggling views doesn’t spam the API or flash empty states",
+          "Per-species bookkeeping: when you open a Pokémon, costs and related figures are tied to that entity in state (not scattered local variables)",
+          "Favorites flow: add/remove with immediate UI feedback while the underlying context keeps the list in sync across screens",
+          "Vite + TypeScript: small, readable modules for actions, context, and views—easy to extend with filters, carts, or persistence later"
+        ]
+      }
+    }
   },
   "experience": {
     "title": "Experience",
@@ -82,8 +124,7 @@
         "highlights": [
           "Partnered with product engineering on shock absorber specs — tight collaboration between design and execution.",
           "Built monitoring solutions for pneumatic and hydraulic equipment (temperature, pressure, leak detection).",
-          "Programmed and tuned FANUC welding robots — quick to adopt new industrial tooling.",
-          "Formal study and side projects to pivot from mechanical/electrical engineering into web development."
+          "Programmed and tuned FANUC welding robots — quick to adopt new industrial tooling."
         ]
       },
       "zoltek": {

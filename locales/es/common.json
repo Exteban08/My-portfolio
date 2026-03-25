@@ -30,7 +30,49 @@
     "featuredBadge": "Destacado",
     "githubEmptyTitle": "Más proyectos en GitHub",
     "githubEmptySubtitle": "Revisa mi perfil de GitHub para encontrar experimentos, proyectos personales y contribuciones open-source.",
-    "visitGithub": "Visitar Perfil de GitHub"
+    "visitGithub": "Visitar Perfil de GitHub",
+    "viewGallery": "Ver pantallas del producto",
+    "privateAppNote": "El producto en producción requiere cuenta; las imágenes son UI real de la plataforma para que puedas ver el trabajo sin iniciar sesión.",
+    "closeGallery": "Cerrar galería",
+    "prevImage": "Imagen anterior",
+    "nextImage": "Imagen siguiente",
+    "caseStudy": {
+      "eva-protect": {
+        "lead": "EVA Protect es una plataforma insurtech de protección personal y de activos. Como co-fundador y CTO, lideré el lado técnico de punta a punta: infraestructura en AWS, producto en Next.js y TypeScript, integraciones y las experiencias que equipos internos y usuarios usan cada día. Al ser un producto con acceso restringido, este caso de estudio sustituye un enlace genérico de “visitar sitio” por capturas reales—para que el alcance del trabajo sea visible sin cuenta.",
+        "highlights": [
+          "Responsabilidad de extremo a extremo: arquitectura en la nube hasta UI en producción",
+          "Entrega full stack: frontend, APIs, despliegue y disciplina operativa",
+          "Producto responsive: flujos de escritorio y recorridos críticos en móvil en un mismo código",
+          "Pensado para operación—no solo marketing: tableros, densidad de datos y claridad bajo uso real"
+        ],
+        "galleryCaptions": {
+          "dashboardDesktop": "Panel operativo (escritorio)—vista general y superficies de control para el día a día.",
+          "dashboardMobile": "El mismo producto en móvil: composición y densidad adaptadas a pantallas pequeñas y tacto.",
+          "gpsDesktop": "Flujo con ubicación (escritorio)—mapas y contexto geográfico integrado al recorrido.",
+          "gpsMobile": "Vista móvil orientada a campo: GPS e interfaz de mapa donde importa el acceso en movimiento."
+        }
+      },
+      "yayo-photo-film": {
+        "lead": "Sitio en vivo para portafolio y enfoque a reservas: galería pública, carga rápida y una separación clara entre lo que ve el visitante y lo que el fotógrafo puede actualizar sin redeployar todo el proyecto.",
+        "highlights": [
+          "Astro para una experiencia pública ligera, orientada al contenido, con interactividad solo donde aporta",
+          "Supabase para almacenar y servir medios—activos estructurados en lugar de rutas de imagen fijas en código",
+          "Área tipo gestor para actualizar la galería y el contenido sin tocar código de producción en cada cambio",
+          "Arquitectura de información clara: mostrar el trabajo primero y luego llevar a reserva o contacto",
+          "Desplegado en Vercel con mira en tráfico real—rendimiento y UX como parte del producto"
+        ]
+      },
+      "pokeshop": {
+        "lead": "Front tipo tienda pensado para mostrar estado en el cliente con intención: cachear listados, mantener a la mano el detalle por Pokémon y derivar datos como costos desde ese estado para que la interfaz se sienta rápida y coherente al recorrer el catálogo.",
+        "highlights": [
+          "React Context como capa de estado—favoritos, respuestas de API en caché y valores derivados en un solo lugar predecible",
+          "Caché en memoria del listado para no saturar la API ni mostrar estados vacíos al volver a vistas ya visitadas",
+          "Registro por especie: al abrir un Pokémon, costos y datos asociados viven en el estado ligados a esa entidad",
+          "Flujo de favoritos: alta/baja con feedback inmediato y lista sincronizada entre pantallas vía contexto",
+          "Vite + TypeScript: módulos pequeños para acciones, contexto y vistas—fácil de extender con filtros, carrito o persistencia después"
+        ]
+      }
+    }
   },
   "experience": {
     "title": "Experiencia",
@@ -82,8 +124,7 @@
         "highlights": [
           "Trabajo con ingeniería de producto en especificaciones de amortiguadores — colaboración estrecha entre diseño y planta.",
           "Soluciones de monitoreo para equipos neumáticos e hidráulicos (temperatura, presión, fugas).",
-          "Programación y afinado de robots de soldadura FANUC — rápida adopción de herramientas industriales.",
-          "Estudio formal y proyectos paralelos para dar el salto de ingeniería mecánica/eléctrica al desarrollo web."
+          "Programación y afinado de robots de soldadura FANUC — rápida adopción de herramientas industriales."
         ]
       },
       "zoltek": {

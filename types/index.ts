@@ -39,16 +39,25 @@ export interface TimelineEntry {
   tech: string[];
 }
 
+/** Case-study gallery slide; captions from `projects.caseStudy.{id}.galleryCaptions.{captionKey}` */
+export interface ProjectGallerySlide {
+  src: string;
+  captionKey: string;
+}
+
 export interface DeployedProject {
   id: string;
   title: string;
   description: string;
   role?: string;
   highlight?: string;
-  url: string;
+  /** Omit when using `gallery` instead of an external product link */
+  url?: string;
   github?: string;
   /** Public URL under `/public`, e.g. `/images/my-app.webp` */
   image?: string;
+  /** When set, replaces “Visit site” with an in-card gallery + lightbox */
+  gallery?: ProjectGallerySlide[];
   tech: string[];
   category: string;
   featured?: boolean;

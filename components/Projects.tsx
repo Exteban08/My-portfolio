@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Images } from 'lucide-react';
 import {
   deployedProjects,
   githubProjects,
@@ -7,12 +7,22 @@ import {
 } from '@/data/portfolio';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ProjectCardCover from '@/components/ProjectCardCover';
+import ProjectGalleryModal from '@/components/ProjectGalleryModal';
+import type { ProjectGallerySlide } from '@/types';
 
 type Tab = 'live' | 'github';
 
+const CASE_STUDY_PREFIX = 'projects.caseStudy';
+
 export default function Projects() {
   const [activeTab, setActiveTab] = useState<Tab>('live');
-  const { t } = useLanguage();
+  const { t, tArray } = useLanguage();
+  const [galleryOpen, setGalleryOpen] = useState<{
+    projectId: string;
+    title: string;
+    slides: ProjectGallerySlide[];
+    initialIndex: number;
+  } | null>(null);
 
   return (
     <section
@@ -61,7 +71,7 @@ export default function Projects() {
             {deployedProjects.map(project => (
               <div
                 key={project.id}
-                className={`group flex flex-col bg-white dark:bg-stone-800 border transition-all duration-300 hover:shadow-lg dark:hover:shadow-stone-900/50 ${
+                className={`group flex min-w-0 flex-col bg-white dark:bg-stone-800 border transition-all duration-300 hover:shadow-lg dark:hover:shadow-stone-900/50 ${
                   project.featured
                     ? 'border-stone-300 dark:border-stone-600 hover:border-stone-400 dark:hover:border-stone-500'
                     : 'border-stone-200 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-600'
@@ -88,9 +98,66 @@ export default function Projects() {
                     {project.title}
                   </h3>
 
-                  <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed mb-6 flex-1">
-                    {project.description}
-                  </p>
+                  {project.gallery && project.gallery.length > 0 ? (
+                    <div className="mb-6 flex-1 space-y-3">
+                      <p className="text-[11px] font-light uppercase tracking-wider text-stone-500 dark:text-stone-400 leading-snug">
+                        {t('projects.privateAppNote')}
+                      </p>
+                      <p className="text-sm text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                        {t(`${CASE_STUDY_PREFIX}.${project.id}.lead`)}
+                      </p>
+                      <ul className="list-inside list-disc space-y-1.5 text-xs font-light leading-relaxed text-stone-600 dark:text-stone-400 marker:text-stone-400 dark:marker:text-stone-500 sm:text-sm sm:space-y-2">
+                        {tArray(`${CASE_STUDY_PREFIX}.${project.id}.highlights`).map(
+                          (item, i) => (
+                            <li key={i}>{item}</li>
+                          ),
+                        )}
+                      </ul>
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        {project.gallery.map((slide, i) => (
+                          <button
+                            key={slide.src}
+                            type="button"
+                            onClick={() =>
+                              setGalleryOpen({
+                                projectId: project.id,
+                                title: project.title,
+                                slides: project.gallery!,
+                                initialIndex: i,
+                              })
+                            }
+                            className="group/img relative aspect-4/3 overflow-hidden rounded-sm border border-stone-200 bg-stone-100 outline-none ring-stone-400/0 transition-all hover:border-stone-300 hover:ring-2 hover:ring-stone-400/30 focus-visible:border-stone-400 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:border-stone-600 dark:bg-stone-900 dark:hover:border-stone-500"
+                            aria-label={`${t('projects.viewGallery')} — ${i + 1}`}
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={slide.src}
+                              alt=""
+                              className="h-full w-full object-cover transition-transform duration-300 group-hover/img:scale-[1.03]"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : tArray(`${CASE_STUDY_PREFIX}.${project.id}.highlights`)
+                      .length > 0 ? (
+                    <div className="mb-6 flex-1 space-y-3">
+                      <p className="text-sm text-stone-600 dark:text-stone-400 font-light leading-relaxed">
+                        {t(`${CASE_STUDY_PREFIX}.${project.id}.lead`)}
+                      </p>
+                      <ul className="list-inside list-disc space-y-1.5 text-xs font-light leading-relaxed text-stone-600 dark:text-stone-400 marker:text-stone-400 dark:marker:text-stone-500 sm:text-sm sm:space-y-2">
+                        {tArray(
+                          `${CASE_STUDY_PREFIX}.${project.id}.highlights`,
+                        ).map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <p className="text-stone-600 dark:text-stone-400 font-light leading-relaxed mb-6 flex-1">
+                      {project.description}
+                    </p>
+                  )}
 
                   {/* Tech tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -105,16 +172,34 @@ export default function Projects() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-4">
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 font-light tracking-wide flex items-center gap-2 text-sm"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      {t('projects.visitSite')}
-                    </a>
+                  <div className="flex flex-wrap items-center gap-4">
+                    {project.gallery && project.gallery.length > 0 ? (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setGalleryOpen({
+                            projectId: project.id,
+                            title: project.title,
+                            slides: project.gallery!,
+                            initialIndex: 0,
+                          })
+                        }
+                        className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 font-light tracking-wide flex items-center gap-2 text-sm cursor-pointer"
+                      >
+                        <Images className="w-4 h-4 shrink-0" />
+                        {t('projects.viewGallery')}
+                      </button>
+                    ) : project.url ? (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 transition-colors duration-200 font-light tracking-wide flex items-center gap-2 text-sm"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        {t('projects.visitSite')}
+                      </a>
+                    ) : null}
                     {project.github && (
                       <a
                         href={project.github}
@@ -205,6 +290,22 @@ export default function Projects() {
           </>
         )}
       </div>
+
+      {galleryOpen ? (
+        <ProjectGalleryModal
+          projectId={galleryOpen.projectId}
+          title={galleryOpen.title}
+          images={galleryOpen.slides}
+          isOpen
+          initialIndex={galleryOpen.initialIndex}
+          onClose={() => setGalleryOpen(null)}
+          captionPrefix={CASE_STUDY_PREFIX}
+          closeLabel={t('projects.closeGallery')}
+          prevLabel={t('projects.prevImage')}
+          nextLabel={t('projects.nextImage')}
+          t={t}
+        />
+      ) : null}
     </section>
   );
 }
