@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Experience() {
   const [isVisible, setIsVisible] = useState(false);
-  const [expandedItem, setExpandedItem] = useState<string>('consultoria-as');
+  const [expandedItem, setExpandedItem] = useState<string>('eva-protect');
   const sectionRef = useRef<HTMLElement>(null);
   const { t, tArray } = useLanguage();
 

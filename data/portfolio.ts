@@ -11,6 +11,19 @@ export const GITHUB_PROFILE_URL = 'https://github.com/Exteban08' as const;
 /** Order: most recent first. Timeline copy: locales en/es common.json → experience.timeline.{id} */
 export const timeline: TimelineEntry[] = [
   {
+    id: 'eva-protect',
+    current: true,
+    tech: [
+      'Next.js',
+      'TypeScript',
+      'Node.js',
+      'Fastify',
+      'PostgreSQL',
+      'Redis',
+      'AWS',
+    ],
+  },
+  {
     id: 'consultoria-as',
     current: true,
     tech: ['React', 'TypeScript', 'Next.js', 'Django', 'REST APIs', 'AWS'],

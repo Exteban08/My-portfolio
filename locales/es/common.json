@@ -81,10 +81,24 @@
     "showDetails": "Ver detalles",
     "hideDetails": "Ocultar detalles",
     "timeline": {
+      "eva-protect": {
+        "role": "Co-fundador y CTO",
+        "company": "EVA Protect",
+        "period": "Oct 2025 – Actual",
+        "location": "Guadalajara, Jalisco",
+        "highlights": [
+          "Co-fundé una startup B2B de seguridad de flotas y telemática; lideré todas las decisiones técnicas y el desarrollo de producto de 0 a producción.",
+          "Diseñé y construí una plataforma SaaS multi-tenant: organizaciones, vehículos, ingesta en tiempo real de GPS/IoT, eventos de seguridad y analítica de combustible.",
+          "Desarrollé un módulo de BI con tableros, reportes automatizados (PDF/XLSX) y pipelines de envío por correo.",
+          "Arquitecturé backend escalable (Node.js/Fastify, PostgreSQL, Redis) y frontend (Next.js, TypeScript).",
+          "Gestioné infraestructura en AWS (EC2, S3, RDS), Nginx, despliegues y rendimiento—paginación, caché y entrega de assets.",
+          "Implementé autenticación, acceso por roles y lógica de suscripciones."
+        ]
+      },
       "consultoria-as": {
         "role": "Ingeniero Full-Stack",
         "company": "Consultoría AS",
-        "period": "Oct 2025 – Actual",
+        "period": "Sep 2025 – Actual",
         "location": "Guadalajara, Jalisco",
         "highlights": [
           "Plataformas para hoteles: reservas, facturación y operación diaria.",
